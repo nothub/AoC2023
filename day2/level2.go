@@ -8,16 +8,6 @@ import (
 	"strings"
 )
 
-const (
-	maxReds   = 12
-	maxGreens = 13
-	maxBlues  = 14
-)
-
-func init() {
-	log.SetFlags(0)
-}
-
 func main() {
 	byt, err := os.ReadFile("input.txt")
 	if err != nil {
@@ -31,9 +21,12 @@ func main() {
 		if len(line) < 1 {
 			continue
 		}
-		legit := true
+
+		minReds := 0
+		minGreens := 0
+		minBlues := 0
+
 		split := strings.Split(line, ": ")
-		gameId, _ := strconv.Atoi(strings.Split(split[0], " ")[1])
 		rounds := strings.Split(split[1], "; ")
 		for _, game := range rounds {
 			throws := strings.Split(game, ", ")
@@ -42,23 +35,21 @@ func main() {
 				count, _ := strconv.Atoi(spl[0])
 				switch spl[1] {
 				case "red":
-					if count > maxReds {
-						legit = false
+					if count > minReds {
+						minReds = count
 					}
 				case "green":
-					if count > maxGreens {
-						legit = false
+					if count > minGreens {
+						minGreens = count
 					}
 				case "blue":
-					if count > maxBlues {
-						legit = false
+					if count > minBlues {
+						minBlues = count
 					}
 				}
 			}
 		}
-		if legit {
-			result = result + gameId
-		}
+		result = result + (minReds * minGreens * minBlues)
 	}
 
 	fmt.Println(result)
