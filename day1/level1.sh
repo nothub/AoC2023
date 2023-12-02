@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -eu
+
 result=0
 
 while IFS= read -r line; do
