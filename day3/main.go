@@ -65,7 +65,7 @@ func level1(path string) (result int) {
 }
 
 func isPartNumber(schematic [][]rune, line int, start int, end int) bool {
-	for _, ri := range []int{-1, 0, 1, 2} {
+	for _, ri := range []int{-1, 0, 1} {
 		for j := start - 1; j <= end+1; j++ {
 			i := line + ri
 			if i < 0 || i >= len(schematic) {
