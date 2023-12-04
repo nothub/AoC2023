@@ -12,3 +12,7 @@ func check(t *testing.T, result int, expected int) {
 func Test_level1_example(t *testing.T) {
 	check(t, level1("example.txt"), 13)
 }
+
+func Test_level1_input(t *testing.T) {
+	check(t, level1("input.txt"), 21213)
+}
