@@ -16,3 +16,11 @@ func Test_level1_example(t *testing.T) {
 func Test_level1_input(t *testing.T) {
 	check(t, level1("input.txt"), 21213)
 }
+
+func Test_level2_example(t *testing.T) {
+	check(t, level2("example.txt"), 30)
+}
+
+func Test_level2_input(t *testing.T) {
+	check(t, level2("input.txt"), -1)
+}
