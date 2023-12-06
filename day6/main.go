@@ -1,8 +1,8 @@
 package day6
 
 import (
+	"github.com/nothub/AoC2023/utils"
 	"log"
-	"os"
 	"regexp"
 	"strconv"
 	"strings"
@@ -15,12 +15,7 @@ func init() {
 var spaceinator = regexp.MustCompile("\\s+")
 
 func level1(path string) (result int) {
-	byt, err := os.ReadFile(path)
-	if err != nil {
-		log.Fatalln(err.Error())
-	}
-	raw := string(byt)
-	lines := strings.Split(raw, "\n")
+	lines := utils.ReadLines(path)
 
 	var time []int
 	var dist []int
@@ -64,12 +59,7 @@ func level1(path string) (result int) {
 }
 
 func level2(path string) (result int) {
-	byt, err := os.ReadFile(path)
-	if err != nil {
-		log.Fatalln(err.Error())
-	}
-	raw := string(byt)
-	lines := strings.Split(raw, "\n")
+	lines := utils.ReadLines(path)
 
 	var time int
 	var dist int

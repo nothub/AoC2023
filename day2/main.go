@@ -1,8 +1,8 @@
 package day2
 
 import (
+	"github.com/nothub/AoC2023/utils"
 	"log"
-	"os"
 	"strconv"
 	"strings"
 )
@@ -17,18 +17,8 @@ func init() {
 	log.SetFlags(0)
 }
 
-func input() []string {
-	byt, err := os.ReadFile("input.txt")
-	if err != nil {
-		log.Fatalln(err.Error())
-	}
-	raw := string(byt)
-	lines := strings.Split(raw, "\n")
-	return lines
-}
-
 func level1() (result int) {
-	for _, line := range input() {
+	for _, line := range utils.ReadLines("input.txt") {
 		if len(line) < 1 {
 			continue
 		}
@@ -66,7 +56,7 @@ func level1() (result int) {
 }
 
 func level2() (result int) {
-	for _, line := range input() {
+	for _, line := range utils.ReadLines("input.txt") {
 		if len(line) < 1 {
 			continue
 		}

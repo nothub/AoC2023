@@ -1,8 +1,8 @@
 package day4
 
 import (
+	"github.com/nothub/AoC2023/utils"
 	"log"
-	"os"
 	"regexp"
 	"slices"
 	"strings"
@@ -61,12 +61,7 @@ func level2(path string) (result int) {
 }
 
 func readCards(path string) (cards []card) {
-	byt, err := os.ReadFile(path)
-	if err != nil {
-		log.Fatalln(err.Error())
-	}
-	raw := string(byt)
-	lines := strings.Split(raw, "\n")
+	lines := utils.ReadLines(path)
 
 	for _, line := range lines {
 

@@ -1,10 +1,9 @@
 package day3
 
 import (
+	"github.com/nothub/AoC2023/utils"
 	"log"
-	"os"
 	"strconv"
-	"strings"
 )
 
 func init() {
@@ -12,14 +11,8 @@ func init() {
 }
 
 func input(path string) [][]rune {
-	byt, err := os.ReadFile(path)
-	if err != nil {
-		log.Fatalln(err.Error())
-	}
-	raw := string(byt)
-	lines := strings.Split(raw, "\n")
 	var chars [][]rune
-	for _, line := range lines {
+	for _, line := range utils.ReadLines(path) {
 		if len(line) > 0 {
 			chars = append(chars, []rune(line))
 		}
