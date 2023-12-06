@@ -14,5 +14,5 @@ func Test_level1_input(t *testing.T) {
 }
 
 func Test_level2_input(t *testing.T) {
-	check(t, level2("input.txt"), -1)
+	check(t, level2("input.txt"), 34278221)
 }
