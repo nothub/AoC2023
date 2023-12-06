@@ -62,3 +62,40 @@ func level1(path string) (result int) {
 
 	return result
 }
+
+func level2(path string) (result int) {
+	byt, err := os.ReadFile(path)
+	if err != nil {
+		log.Fatalln(err.Error())
+	}
+	raw := string(byt)
+	lines := strings.Split(raw, "\n")
+
+	var time int
+	var dist int
+	for _, line := range lines {
+		if len(line) == 0 {
+			continue
+		}
+		line = spaceinator.ReplaceAllString(line, "")
+		val := strings.Split(line, ":")[1]
+		num, err := strconv.Atoi(val)
+		if err != nil {
+			log.Fatalln(err.Error())
+		}
+		if strings.HasPrefix(line, "Time") {
+			time = num
+		}
+		if strings.HasPrefix(line, "Distance") {
+			dist = num
+		}
+	}
+
+	for step := 1; step < time-1; step++ {
+		if (time-step)*step > dist {
+			result++
+		}
+	}
+
+	return result
+}
