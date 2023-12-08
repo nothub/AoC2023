@@ -13,11 +13,8 @@ func ReadLines(path string) []string {
 	}
 
 	lines := strings.Split(string(data), "\n")
-	for i := range lines {
-		if len(lines[i]) == 0 {
-			lines = append(lines[:i], lines[i+1:]...)
-		}
-	}
 
-	return lines
+	return Filter[string](lines, func(line string, index int) bool {
+		return len(line) != 0
+	})
 }
